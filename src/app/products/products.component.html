@@ -1,0 +1,10 @@
+<div class="main-content">
+
+  <app-category-menu></app-category-menu>
+
+  <div class="products-menu">
+    <div *ngFor="let tempProduct of Products" class="product-box">
+      <a class="product-name"> {{ tempProduct.name }} </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+.cat-menu{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background-color: aquamarine;
+}
+
+.cat-box{
+  display: block;
+  margin: 20px 15px;
+  padding: 10px;
+}
+
+a {
+  color: #dddddd;
+  background-color: #666666;
+  padding: 10px 20px;
+}
+
+a:hover{
+  background-color: #1abc9c;
+}
