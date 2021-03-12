@@ -3,11 +3,11 @@ import {Product} from '../product';
 import {ProductService} from '../product.service';
 
 @Component({
-  selector: 'app-category-menu',
-  templateUrl: './category-menu.component.html',
-  styleUrls: ['./category-menu.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class CategoryMenuComponent implements OnInit {
+export class HomeComponent implements OnInit {
   Products: Product[] = [];
 
   constructor(private productService: ProductService) { }
@@ -19,4 +19,5 @@ export class CategoryMenuComponent implements OnInit {
   getProducts(): void{
     this.Products = this.productService.getProducts();
   }
+
 }
