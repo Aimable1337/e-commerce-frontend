@@ -1,14 +1,14 @@
 <div class="main-content">
 
   <div class="cat-menu">
-    <div *ngFor="let tempProduct of Products" class="cat-box">
-      <a>{{ tempProduct.category }}</a>
+    <div *ngFor="let tempProduct of products" class="cat-box">
+      <a>{{ tempProduct.productCategory }}</a>
     </div>
   </div>
 
   <div class="products-menu">
-    <div *ngFor="let tempProduct of Products" class="product-box">
-      <a class="product-name"> {{ tempProduct.name }} </a>
+    <div *ngFor="let tempProduct of products" class="product-box">
+      <a routerLink="/product/{{ tempProduct.productId }}" class="product-name"> {{ tempProduct.productName }} </a>
     </div>
   </div>
 </div>

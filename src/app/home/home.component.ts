@@ -8,7 +8,7 @@ import {ProductService} from '../product.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  Products: Product[] = [];
+  products: Product[] = [];
 
   constructor(private productService: ProductService) { }
 
@@ -17,7 +17,8 @@ export class HomeComponent implements OnInit {
   }
 
   getProducts(): void{
-    this.Products = this.productService.getProducts();
+    this.productService.getProducts()
+      .subscribe(products => this.products = products);
   }
 
 }
