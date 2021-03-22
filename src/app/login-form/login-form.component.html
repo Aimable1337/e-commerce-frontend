@@ -3,23 +3,23 @@
     <div class="container">
       <div class="row text-black-50">
         <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
-          <h1 class="display-4 py-2 text-truncate">Center my form.</h1>
+          <h1 class="display-4 py-2 text-truncate">Login form.</h1>
           <div class="px-2">
-            <form action="" class="justify-content-center">
+            <form action="" class="justify-content-center" [formGroup]="form">
               <div class="form-group">
-                <label class="sr-only">Name</label>
-                <input type="text" class="form-control" placeholder="Login">
+                <label class="sr-only">Username</label>
+                <input formControlName="username" type="text" class="form-control" placeholder="Username">
               </div>
               <div class="form-group">
                 <label class="sr-only">Password</label>
-                <input type="password" class="form-control" placeholder="Password">
+                <input formControlName="password" type="password" class="form-control" placeholder="Password">
               </div>
               <br>
-              <button type="submit" class="btn btn-outline-success">Login</button>
-              <br> <br> <br>
-              <p class="alert alert-info">Don't have account yet?</p>
-              <button routerLink="/register" class="btn btn-outline-warning">Register</button>
+              <button (click)="login()" class="btn btn-outline-success">Login</button>
             </form>
+            <br> <br> <br>
+            <p class="alert alert-info">Don't have account yet?</p>
+            <button routerLink="/register" class="btn btn-outline-warning">Register</button>
           </div>
         </div>
       </div>

@@ -1,14 +1,13 @@
-<div class="main-content">
-
-  <div class="cat-menu">
-    <div *ngFor="let tempProduct of products" class="cat-box">
-      <a>{{ tempProduct.productCategory }}</a>
-    </div>
-  </div>
-
-  <div class="products-menu">
+ <div class="products-menu container">
     <div *ngFor="let tempProduct of products" class="product-box">
-      <a routerLink="/product/{{ tempProduct.productId }}" class="product-name"> {{ tempProduct.productName }} </a>
+      <div class="card item" style="width: 18rem;">
+        <img src="/assets/placeholder.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"> {{ tempProduct.productName }} </h5>
+          <p class="card-text"> {{ tempProduct.productPrice | currency:"USD" }} </p>
+          <a routerLink="/product/{{ tempProduct.productId }}" class="btn btn-primary">View product page</a>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+

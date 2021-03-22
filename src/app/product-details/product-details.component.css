@@ -1,0 +1,61 @@
+.single-prod{
+  margin-top: 80px;
+}
+
+.single-prod .col-2 img{
+  padding: 0;
+}
+
+.single-prod .col-2{
+  padding: 20px;
+}
+
+.single-prod p{
+  color: grey;
+}
+
+.single-prod h4{
+  margin: 20px 0;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.single-prod input{
+  width: 50px;
+  height: 35px;
+  padding-left: 10px;
+  font-size: 20px;
+  margin-right: 10px;
+  border: 1px solid mediumseagreen;
+}
+
+input:focus{
+  outline: none;
+}
+
+.gallery{
+  margin-bottom: 80px;
+}
+
+.description{
+  text-align: center;
+}
+
+@media only screen and (max-width: 800px){
+  .row{
+    text-align: center;
+  }
+  .col-2, .col-3, .col-4{
+    flex-basis: 100%;
+  }
+  .single-prod .row{
+    text-align: left;
+  }
+  .single-prod .col-2{
+    padding: 20px 0;
+  }
+  .single-prod h1{
+    font-size: 25px;
+    line-height: 20px;
+  }
+}

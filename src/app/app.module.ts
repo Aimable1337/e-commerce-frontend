@@ -13,6 +13,7 @@ import {LoginFormComponent} from './login-form/login-form.component';
 import {MyAccountComponent} from './my-account/my-account.component';
 import {HttpClientModule} from '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,11 +27,12 @@ import { RegisterComponent } from './register/register.component';
     MyAccountComponent,
     RegisterComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

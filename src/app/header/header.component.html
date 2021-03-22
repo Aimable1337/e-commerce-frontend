@@ -1,17 +1,67 @@
-<div class="header">
-  <h1>My fullstack e-commerce app</h1>
-  <p>A <b>responsive</b> website created by Miłosz Nieradka.</p>
-</div>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+  <span class="navbar-text">
+    My Ecommerce
+  </span>
+  <ul class="navbar-nav ms-auto">
+    <li class="nav-item">
+      <button class="btn btn-secondary me-2" routerLink="/home">Home</button>
+    </li>
+    <li class="nav-item">
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+         Categories
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <li>
+            <div *ngFor="let tempProduct of products">
+              <a class="dropdown-item" href="#">{{ tempProduct.productCategory}}</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item">
+      <div class="container-fluid">
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </li>
+  </ul>
 
-<div class="navbar">
-  <a routerLink="/home" class="active left">Home</a>
+  <div class="ms-auto me-4" *ngIf="isLoggedIn(); else elseBlock">
+    <ul class="navbar-nav">
+      <li class="me-2">
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Basket
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li *ngFor="let tempProd of products"><a class="dropdown-item">{{ tempProd.productName }}, {{ tempProd.productPrice | currency:"USD" }}</a></li>
+            <li><button type="button" class="dropdown-item btn btn-outline-primary">Checkout</button></li>
+          </ul>
+        </div>
+      </li>
+      <li class="me-2">
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Account
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" href="#">Account details</a></li>
+            <li><a class="dropdown-item" href="#">My orders</a></li>
+            <li><a class="dropdown-item" (click)="logOut()">Logout</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
 
-  <form>
-    <label>
-      <input type="search" placeholder="Search for product search">
-      <button type="submit" class="btn btn-outline-success search-button">Search</button>
-    </label>
-  </form>
+  <ng-template #elseBlock>
+    <ul class="navbar-nav ms-auto">
+      <li><a class="nav-link" routerLink="/login">Login</a></li>
+    </ul>
+  </ng-template>
 
-  <a routerLink="/login" class="right">Login</a>
-</div>
+</nav>
