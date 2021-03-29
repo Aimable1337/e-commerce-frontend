@@ -25,7 +25,14 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    return moment().isBefore(this.getExpiration());
+    if ( localStorage.getItem(`jwt_token`) && localStorage.getItem(`expires_at`) ){
+      if (moment().isBefore(this.getExpiration())){
+        return true;
+      } else {
+        this.logout();
+        return false;
+      }
+    }
   }
 
   isLoggedOut(): boolean {
@@ -34,7 +41,6 @@ export class AuthService {
 
   getExpiration(): any {
     const expiration = localStorage.getItem(`expires_at`);
-    console.log(`getExpiration >>>>>>>>>>>>>> ` + expiration);
     const expiresAt = JSON.parse(expiration);
     return moment(expiresAt);
   }

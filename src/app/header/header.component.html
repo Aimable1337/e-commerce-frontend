@@ -14,7 +14,7 @@
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <li>
             <div *ngFor="let tempProduct of products">
-              <a class="dropdown-item" href="#">{{ tempProduct.productCategory}}</a>
+              <a class="dropdown-item" href="#">{{ tempProduct.productCategory }}</a>
             </div>
           </li>
         </ul>
@@ -38,8 +38,8 @@
             Basket
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li *ngFor="let tempProd of products"><a class="dropdown-item">{{ tempProd.productName }}, {{ tempProd.productPrice | currency:"USD" }}</a></li>
-            <li><button type="button" class="dropdown-item btn btn-outline-primary">Checkout</button></li>
+            <li *ngFor="let tempProd of basket"><a class="dropdown-item">{{ tempProd.productName }}, {{ tempProd.productPrice | currency:"USD" }}</a></li>
+            <li><button routerLink="/checkout" type="button" class="dropdown-item btn btn-outline-primary">Checkout</button></li>
           </ul>
         </div>
       </li>
@@ -49,7 +49,7 @@
             Account
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item" href="#">Account details</a></li>
+            <li><a class="dropdown-item" routerLink="/acc">Account details</a></li>
             <li><a class="dropdown-item" href="#">My orders</a></li>
             <li><a class="dropdown-item" (click)="logOut()">Logout</a></li>
           </ul>
