@@ -33,9 +33,11 @@ export class LoginFormComponent implements OnInit {
           (data: HttpResponse<any>) => {
             localStorage.setItem(`jwt_token`, data.headers.get('Authorization'));
             localStorage.setItem(`expires_at`, data.headers.get('expiresAt'));
+            alert(`Success!`);
             this.router.navigateByUrl(`/home`);
           },
           error => {
+            alert(`Bad username or password.`);
             console.log(error);
           });
     }

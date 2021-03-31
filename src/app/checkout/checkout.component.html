@@ -3,17 +3,20 @@
   <tr>
     <th scope="col">Product ID</th>
     <th scope="col">Product Name</th>
+    <th scope="col">Amount</th>
     <th scope="col">Price</th>
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let tempProd of basket">
-    <th scope="row">{{ tempProd.productId }}</th>
-    <td>{{ tempProd.productName }}</td>
-    <td>{{ tempProd.productPrice | currency: "USD"}}</td>
+  <tr *ngFor="let item of basket">
+    <th scope="row">{{ item.id }}</th>
+    <td>{{ item.name }}</td>
+    <td> {{ item.amount }} </td>
+    <td>{{ item.price | currency: "USD"}}</td>
   </tr>
   </tbody>
   <tfoot class="">
+    <td></td>
     <td></td>
     <td></td>
     <td>In Total: {{ inTotal | currency: "USD" }}</td>

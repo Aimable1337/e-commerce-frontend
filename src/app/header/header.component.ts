@@ -3,6 +3,7 @@ import {Product} from '../product';
 import {ProductService} from '../product.service';
 import {AuthService} from '../auth.service';
 import {BasketService} from '../basket.service';
+import {BasketItem} from '../BasketItem';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,7 @@ import {BasketService} from '../basket.service';
 })
 export class HeaderComponent implements OnInit {
   products: Product[] = [];
-  basket: Product[] = [];
+  basket: BasketItem[] = [];
 
   constructor(private productService: ProductService,
               private authService: AuthService,

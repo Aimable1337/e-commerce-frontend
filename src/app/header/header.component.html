@@ -38,7 +38,7 @@
             Basket
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li *ngFor="let tempProd of basket"><a class="dropdown-item">{{ tempProd.productName }}, {{ tempProd.productPrice | currency:"USD" }}</a></li>
+            <li *ngFor="let tempProd of basket"><a class="dropdown-item">{{ tempProd.name }}, {{ tempProd.amount }}x{{ tempProd.price | currency:"USD" }}</a></li>
             <li><button routerLink="/checkout" type="button" class="dropdown-item btn btn-outline-primary">Checkout</button></li>
           </ul>
         </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {BasketService} from '../basket.service';
-import {Product} from '../product';
+import {BasketItem} from '../BasketItem';
 
 @Component({
   selector: 'app-checkout',
@@ -8,14 +8,14 @@ import {Product} from '../product';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
-  basket: Product[] = [];
+  basket: BasketItem[] = [];
   inTotal = 0;
 
   constructor(private basketService: BasketService) { }
 
   ngOnInit(): void {
     this.basketService.currentData.subscribe(data => this.basket = data);
-    this.basket.forEach(prod => this.inTotal += prod.productPrice);
+    this.basket.forEach(prod => this.inTotal += prod.price * prod.amount);
   }
 
   removeFromBasket(id: number): void{

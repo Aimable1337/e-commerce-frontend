@@ -14,8 +14,8 @@ export class AuthService {
   login(username: string, password: string): any{
     return this.http.post<any>(`${this.api}/login`, {username, password},
       {observe: 'response' as 'body'})
-      .pipe(map(user => {
-        return user;
+      .pipe(map(res => {
+        return res;
       }));
   }
 

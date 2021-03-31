@@ -7,8 +7,10 @@
       <p> {{ product?.productCategory }} </p>
       <h1> {{ product?.productName }} </h1>
       <h4> {{ product?.productPrice | currency:"USD" }} </h4>
-      <input type="number" value="1">
-      <button (click)="addProduct()" class="btn btn-outline-success">Add To Basket</button>
+      <form [formGroup]="form">
+        <input class="form-group" type="number" formControlName="amount" value="1">
+        <button (click)="addProduct()" class="btn btn-outline-success">Add To Basket</button>
+      </form>
     </div>
   </div>
 

@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import {ProductService} from '../product.service';
 import {BasketService} from '../basket.service';
+import {BasketItem} from '../BasketItem';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-product-details',
@@ -12,12 +14,18 @@ import {BasketService} from '../basket.service';
 })
 export class ProductDetailsComponent implements OnInit {
   product: Product;
-  basket: Product[];
+  basket: BasketItem[];
+  form: FormGroup;
 
   constructor(private route: ActivatedRoute,
               private productService: ProductService,
               private  location: Location,
-              private basketService: BasketService) { }
+              private basketService: BasketService,
+              private fb: FormBuilder) {
+    this.form = this.fb.group({
+      amount: [``, Validators.required]
+    });
+  }
 
   ngOnInit(): void {
     this.getProduct();
@@ -30,7 +38,9 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   addProduct(): void{
-    this.basketService.addProduct(this.product);
+    const val = this.form.value;
+    const item: BasketItem = new BasketItem(this.product, val.amount);
+    this.basketService.addProduct(item);
   }
 
 }
